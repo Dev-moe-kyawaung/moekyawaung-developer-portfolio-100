@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@theme {
+  --color-void: #030406;
+  --color-void-2: #080b14;
+  --color-void-3: #0f1424;
+  --color-cyan: #00f0ff;
+  --color-magenta: #ff00a0;
+  --color-violet: #8b5cf6;
+  --color-emerald: #00ff88;
+  --color-amber: #ffaa00;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html, body { 
+    background: #030406; 
+    color: #e0f2f1; 
+    font-family: "Inter", sans-serif;
+    overflow-x: hidden;
+  }
+  ::selection { background: #00f0ff; color: #030406; }
+}
+
+/* Fractal glow text */
+.fractal-text {
+  background: linear-gradient(90deg, #00f0ff, #ff00a0, #8b5cf6, #00f0ff);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: fractalShift 4s linear infinite;
+}
+@keyframes fractalShift {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+/* Quantum glow */
+.quantum-glow { 
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.5), 
+              0 0 40px rgba(0, 240, 255, 0.3),
+              inset 0 0 20px rgba(0, 240, 255, 0.1);
+}
+.quantum-glow-magenta {
+  box-shadow: 0 0 20px rgba(255, 0, 160, 0.5),
+              0 0 40px rgba(255, 0, 160, 0.3);
+}
+
+/* Glass panel */
+.glass-quantum {
+  background: rgba(8, 11, 20, 0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.1);
+}
+
+/* Grid shift animation */
+@keyframes gridShift {
+  0% { transform: perspective(500px) rotateX(60deg) translateY(0); }
+  100% { transform: perspective(500px) rotateX(60deg) translateY(40px); }
+}
+.grid-animate {
+  animation: gridShift 2s linear infinite;
+}
+
+/* Data stream rain */
+@keyframes rain {
+  0% { transform: translateY(-100%); opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+/* Particle burst */
+@keyframes burst {
+  0% { transform: scale(0); opacity: 1; }
+  100% { transform: scale(3); opacity: 0; }
+}
+.burst-particle {
+  animation: burst 0.8s ease-out forwards;
+}
+
+/* Node pulse */
+@keyframes nodePulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.2); opacity: 1; }
+}
+.node-pulse { animation: nodePulse 2s ease-in-out infinite; }
+
+/* Connection line draw */
+@keyframes drawLine {
+  0% { stroke-dashoffset: 1000; }
+  100% { stroke-dashoffset: 0; }
+}
+.connection-line {
+  stroke-dasharray: 1000;
+  animation: drawLine 2s ease-out forwards;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+.float-orb { animation: float 6s ease-in-out infinite; }
+
+/* Matrix rain canvas container */
+.matrix-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
